@@ -1,584 +1,1510 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Beauty Portfolio</title>
+<title>Shaqie' Peppa Portfolio </title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", Arial, sans-serif;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #fff0f5, #f9dbe7, #fff7fa);
-            color: #4b3440;
-            overflow-x: hidden;
-        }
+<style>
 
-        /* Background decoration */
-        .circle {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(2px);
-            opacity: 0.5;
-            z-index: -1;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .circle.one {
-            width: 250px;
-            height: 250px;
-            background: #f3b6cb;
-            top: -80px;
-            left: -80px;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .circle.two {
-            width: 300px;
-            height: 300px;
-            background: #e9c6d5;
-            bottom: -120px;
-            right: -100px;
-        }
+body {
+    font-family: "Quicksand", sans-serif;
+    background: #ffeaf3;
+    color: #666;
+    overflow-x: hidden;
+}
 
-        /* Navbar */
-        nav {
-            width: 100%;
-            padding: 22px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #9d536f;
-        }
+/* ==============================
+   NAVBAR
+============================== */
 
-        .logo span {
-            font-weight: normal;
-        }
+.navbar {
+    height: 78px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-        .nav-btn {
-            border: none;
-            background: #9d536f;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        .nav-btn:hover {
-            transform: scale(1.05);
-            background: #7f4059;
-        }
+    padding: 0 35px;
 
-        /* Main */
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 40px auto;
-        }
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 10px,
+            rgba(255,255,255,.25) 11px
+        ),
+        #ffdce9;
 
-        .hero {
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
+    border-bottom: 4px solid #f3aac3;
+}
 
-        .hero-text {
-            flex: 1;
-        }
+.logo {
+    background: white;
+    padding: 10px 25px;
+    border-radius: 0 0 30px 30px;
 
-        .small-title {
-            color: #a65c77;
-            font-size: 15px;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
+    border: 3px dashed #f2a2bd;
 
-        h1 {
-            font-size: 58px;
-            line-height: 1.1;
-            color: #432d37;
-            margin-bottom: 20px;
-        }
+    color: #ed789c;
 
-        h1 span {
-            color: #a85472;
-        }
+    font-family: "Fredoka", sans-serif;
+    font-size: 21px;
+    font-weight: 700;
 
-        .description {
-            font-size: 16px;
-            line-height: 1.8;
-            max-width: 500px;
-            color: #6d5660;
-            margin-bottom: 30px;
-        }
+    transform: rotate(-2deg);
+}
 
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+.logo span {
+    display: block;
+    line-height: 17px;
+}
 
-        .main-btn {
-            padding: 13px 25px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+.nav-links {
+    display: flex;
+    gap: 8px;
+}
 
-        .primary {
-            background: #9d536f;
-            color: white;
-        }
+.nav-links a {
+    text-decoration: none;
+    color: #ed789c;
 
-        .secondary {
-            background: white;
-            color: #9d536f;
-            border: 1px solid #d9a7b9;
-        }
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
 
-        .main-btn:hover {
-            transform: translateY(-3px);
-        }
+    padding: 10px 18px;
+    border-radius: 25px;
 
-        /* Beauty Product Illustration */
-        .beauty-area {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    transition: .25s;
+}
 
-        .beauty-box {
-            width: 360px;
-            height: 430px;
-            background: rgba(255,255,255,0.65);
-            backdrop-filter: blur(15px);
-            border-radius: 180px 180px 40px 40px;
-            border: 1px solid rgba(255,255,255,0.8);
-            box-shadow: 0 25px 60px rgba(139, 74, 101, 0.2);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.nav-links a:hover {
+    background: white;
+    transform: translateY(-2px);
+}
 
-        /* perfume */
-        .perfume {
-            position: absolute;
-            width: 100px;
-            height: 150px;
-            background: linear-gradient(90deg, #e8b6c9, #fff0f5, #dda5bb);
-            border-radius: 15px;
-            bottom: 60px;
-            left: 70px;
-            box-shadow: 0 10px 20px rgba(100,50,70,0.15);
-        }
+.nav-links a.active {
+    background: #fff4bd;
+    border: 2px solid #f0d475;
+}
 
-        .perfume::before {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 35px;
-            background: #9d536f;
-            top: -35px;
-            left: 25px;
-            border-radius: 7px 7px 0 0;
-        }
 
-        .perfume::after {
-            content: "BEAUTY";
-            position: absolute;
-            font-size: 11px;
-            letter-spacing: 2px;
-            color: #7d4057;
-            top: 65px;
-            left: 25px;
-        }
+/* MUSIC */
 
-        /* lipstick */
-        .lipstick {
-            position: absolute;
-            width: 60px;
-            height: 140px;
-            background: #8d405c;
-            border-radius: 8px;
-            bottom: 60px;
-            right: 80px;
-        }
+.music-btn {
+    width: 40px;
+    height: 40px;
 
-        .lipstick::before {
-            content: "";
-            position: absolute;
-            width: 45px;
-            height: 55px;
-            background: #c46b89;
-            top: -45px;
-            left: 7px;
-            border-radius: 30px 30px 5px 5px;
-        }
+    border: 2px solid #f29bbb;
+    border-radius: 12px;
 
-        /* mirror */
-        .mirror {
-            position: absolute;
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 8px solid #d7a5b8;
-            background: linear-gradient(135deg, #fff, #f5dce6);
-            top: 65px;
-            left: 115px;
-        }
+    background: #ef7ea4;
+    color: white;
 
-        .mirror::after {
-            content: "✦";
-            position: absolute;
-            font-size: 40px;
-            color: #c47a98;
-            top: 38px;
-            left: 43px;
-        }
+    font-size: 19px;
 
-        /* Popup */
-        .popup {
-            position: fixed;
-            inset: 0;
-            background: rgba(40,20,30,0.5);
-            backdrop-filter: blur(5px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            z-index: 100;
-        }
+    cursor: pointer;
 
-        .popup.active {
-            display: flex;
-        }
+    box-shadow: 0 4px 0 #d65d83;
+}
 
-        .popup-content {
-            width: 100%;
-            max-width: 500px;
-            background: #fff9fb;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 70px rgba(0,0,0,0.2);
-            position: relative;
-            animation: popup 0.3s ease;
-        }
 
-        @keyframes popup {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
+/* ==============================
+   HERO
+============================== */
 
-        .close {
-            position: absolute;
-            top: 18px;
-            right: 22px;
-            font-size: 25px;
-            cursor: pointer;
-            color: #8f5269;
-        }
+.hero {
 
-        .popup h2 {
-            color: #914b67;
-            margin-bottom: 20px;
-        }
+    min-height: 600px;
 
-        .profile {
-            display: grid;
-            gap: 12px;
-        }
+    position: relative;
 
-        .profile-item {
-            background: white;
-            padding: 14px 18px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(130,70,90,0.06);
-        }
+    overflow: hidden;
 
-        .profile-item strong {
-            color: #914b67;
-        }
+    padding: 60px 7% 110px;
 
-        /* Social Media */
-        .social {
-            display: grid;
-            gap: 12px;
-        }
+    background:
+        linear-gradient(
+            #91d4f8,
+            #c0eaff
+        );
 
-        .social a {
-            text-decoration: none;
-            color: #60404c;
-            background: white;
-            padding: 15px 20px;
-            border-radius: 15px;
-            transition: 0.3s;
-            display: flex;
-            justify-content: space-between;
-        }
+    border: 5px solid #e8b4ca;
+    border-top: 0;
 
-        .social a:hover {
-            transform: translateX(5px);
-            background: #fce8ef;
-        }
+    border-radius: 0 0 30px 30px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #85616d;
-            font-size: 13px;
-        }
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 30px;
-            }
+/* CLOUDS */
 
-            h1 {
-                font-size: 42px;
-            }
+.cloud {
+    position: absolute;
 
-            .description {
-                margin: auto auto 25px;
-            }
+    width: 130px;
+    height: 50px;
 
-            .buttons {
-                justify-content: center;
-            }
+    background: white;
 
-            .beauty-box {
-                width: 300px;
-                height: 360px;
-                transform: scale(0.85);
-            }
-        }
-    </style>
+    border-radius: 50px;
+
+    opacity: .9;
+}
+
+.cloud::before {
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    left: 20px;
+    bottom: 15px;
+}
+
+.cloud::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    right: 15px;
+    bottom: 10px;
+}
+
+.cloud.one {
+    left: 30px;
+    top: 130px;
+}
+
+.cloud.two {
+    right: 70px;
+    top: 80px;
+    transform: scale(.8);
+}
+
+
+/* STARS */
+
+.star {
+    position: absolute;
+    font-size: 24px;
+
+    animation: sparkle 2s infinite;
+}
+
+.star.one {
+    left: 13%;
+    top: 45px;
+}
+
+.star.two {
+    left: 25%;
+    top: 100px;
+}
+
+.star.three {
+    right: 43%;
+    top: 65px;
+}
+
+.star.four {
+    right: 8%;
+    top: 190px;
+}
+
+@keyframes sparkle {
+
+    50% {
+        transform: scale(1.3) rotate(15deg);
+        opacity: .5;
+    }
+
+}
+
+
+/* HERO CONTENT */
+
+.hero-content {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* ==============================
+   FLYING PEPPA
+============================== */
+
+.peppa {
+
+    text-align: center;
+
+    animation: fly 3s ease-in-out infinite;
+}
+
+.peppa img {
+
+    width: min(440px, 100%);
+
+    filter:
+        drop-shadow(
+            0 15px 8px rgba(80,120,150,.15)
+        );
+}
+
+@keyframes fly {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            rotate(2deg);
+    }
+
+}
+
+
+/* ==============================
+   INTRO CLOUD
+============================== */
+
+.intro {
+
+    position: relative;
+
+    background: white;
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    border-radius:
+        45% 55%
+        48% 52%;
+
+    border: 3px dashed #f3b0c7;
+
+    box-shadow:
+        0 10px 0 rgba(255,255,255,.4);
+}
+
+.intro h2 {
+
+    font-family: "Fredoka", sans-serif;
+
+    font-size: 38px;
+
+    color: #72b8e9;
+}
+
+.intro h1 {
+
+    font-family: "Fredoka", sans-serif;
+
+    color: #ed789f;
+
+    font-size: clamp(40px,5vw,62px);
+
+    margin: 8px 0 20px;
+}
+
+.intro p {
+
+    line-height: 1.8;
+
+    font-size: 16px;
+}
+
+.scroll-btn {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 11px 25px;
+
+    background: #fff0f5;
+
+    border: 3px solid #f4a3bf;
+
+    color: #e96f97;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+.scroll-btn:hover {
+
+    background: #ffdce9;
+
+    transform: scale(1.05);
+}
+
+
+/* ==============================
+   HILLS
+============================== */
+
+.hills {
+
+    position: absolute;
+
+    bottom: -50px;
+    left: -5%;
+
+    width: 110%;
+
+    height: 150px;
+
+    background: #a8d887;
+
+    border-radius: 50% 50% 0 0;
+
+}
+
+.hills::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70%;
+    height: 120px;
+
+    right: -15%;
+    bottom: -20px;
+
+    background: #9ed17f;
+
+    border-radius: 50%;
+}
+
+
+/* ==============================
+   MAIN MENU
+============================== */
+
+.sections {
+
+    padding: 55px 5% 80px;
+
+    background: #ffeaf3;
+
+    position: relative;
+}
+
+.flower-title {
+
+    text-align: center;
+
+    font-size: 25px;
+
+    letter-spacing: 12px;
+
+    margin-bottom: 15px;
+}
+
+.title {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.title h2 {
+
+    font-family: "Fredoka", sans-serif;
+
+    color: #ed789c;
+
+    font-size: 34px;
+}
+
+.title p {
+
+    margin-top: 8px;
+}
+
+
+/* ==============================
+   THREE CARDS
+============================== */
+
+.card-grid {
+
+    max-width: 950px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 25px;
+}
+
+.card {
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 14px;
+
+    border: 3px dashed #f2b0c6;
+
+    box-shadow:
+        0 8px 0 #f5d3df;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.card:hover {
+
+    transform:
+        translateY(-10px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 15px 0 #f2c5d7;
+}
+
+.card img {
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    background: #f5f8fb;
+}
+
+.card h3 {
+
+    font-family: "Fredoka", sans-serif;
+
+    color: #ed789c;
+
+    font-size: 25px;
+
+    margin-top: 12px;
+}
+
+.card p {
+
+    margin: 7px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.arrow {
+
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #ef7fa3;
+
+    color: white;
+
+    font-size: 20px;
+
+    margin: 8px;
+
+    box-shadow: 0 3px 0 #d85e82;
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   CONTENT
+============================== */
+
+.content {
+
+    display: none;
+
+    max-width: 900px;
+
+    margin: 40px auto 0;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    border: 3px dashed #f1adc4;
+
+    box-shadow:
+        0 10px 0 #f4d2df;
+
+    animation: appear .5s ease;
+}
+
+.content.show {
+
+    display: block;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.content h2 {
+
+    font-family: "Fredoka", sans-serif;
+
+    color: #ed789c;
+
+    font-size: 35px;
+
+    margin-bottom: 20px;
+}
+
+.content p {
+
+    line-height: 1.8;
+}
+
+
+/* ==============================
+   ABOUT
+============================== */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.about-box {
+
+    padding: 18px;
+
+    background: #fff2f7;
+
+    border-radius: 18px;
+}
+
+.about-box strong {
+
+    color: #e76f96;
+}
+
+
+/* ==============================
+   SKILLS
+============================== */
+
+.skills {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.skill {
+
+    background: #eaf7ff;
+
+    border: 2px solid #a9d9f5;
+
+    color: #66a9d1;
+
+    padding: 11px 18px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: .2s;
+}
+
+.skill:hover {
+
+    transform: scale(1.07);
+
+    background: #d9f1ff;
+}
+
+
+/* ==============================
+   SOCIAL
+============================== */
+
+.social-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.social {
+
+    display: block;
+
+    padding: 20px;
+
+    text-decoration: none;
+
+    color: #666;
+
+    background: #fff2f7;
+
+    border: 2px solid #f3b1c8;
+
+    border-radius: 20px;
+
+    transition: .25s;
+}
+
+.social:hover {
+
+    transform: translateX(7px);
+
+    background: #ffe1eb;
+}
+
+.social strong {
+
+    color: #e76f96;
+
+    font-size: 18px;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+
+    background: #ffd8e7;
+
+    border-top: 5px solid #f2aac3;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #e36c94;
+
+    font-weight: 600;
+}
+
+footer p {
+
+    margin: 5px;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grid {
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .hero {
+        padding: 40px 15px 100px;
+    }
+
+    .intro {
+        padding: 35px 20px;
+    }
+
+    .intro h2 {
+        font-size: 28px;
+    }
+
+    .intro h1 {
+        font-size: 42px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+    }
+
+    .about-grid,
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        padding: 25px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <div class="circle one"></div>
-    <div class="circle two"></div>
 
-    <nav>
-        <div class="logo">beauty<span>folio.</span></div>
+<!-- ==========================
+     NAVBAR
+========================== -->
 
-        <button class="nav-btn" onclick="openPopup('social')">
-            Social Media
-        </button>
-    </nav>
+<nav class="navbar">
 
-    <main class="container">
+    <div class="logo">
 
-        <section class="hero">
+        <span>🐷 Peppa</span>
 
-            <div class="hero-text">
+        Portfolio 🌼
 
-                <div class="small-title">
-                    PERSONAL PORTFOLIO
-                </div>
-
-                <h1>
-                    Hi, I'm <span>YOUR NAME</span>
-                </h1>
-
-                <p class="description">
-                    Welcome to my personal portfolio. A little space
-                    where I share my profile, creativity, projects,
-                    and things I love about beauty and design.
-                </p>
-
-                <div class="buttons">
-
-                    <button
-                        class="main-btn primary"
-                        onclick="openPopup('profile')">
-                        ✦ About Me
-                    </button>
-
-                    <button
-                        class="main-btn secondary"
-                        onclick="openPopup('social')">
-                        ♡ My Socials
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="beauty-area">
-
-                <div class="beauty-box">
-
-                    <div class="mirror"></div>
-
-                    <div class="perfume"></div>
-
-                    <div class="lipstick"></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        © 2026 YOUR NAME · Made with ♡
-    </footer>
+    </div>
 
 
-    <!-- PROFILE POPUP -->
-    <div class="popup" id="profilePopup">
+    <div class="nav-links">
 
-        <div class="popup-content">
+        <a
+            href="#home"
+            class="active"
+        >
+            Home
+        </a>
 
-            <div class="close" onclick="closePopup()">×</div>
+        <a href="#about">
+            About Me
+        </a>
 
-            <h2>About Me ✨</h2>
+        <a href="#skills">
+            Skills
+        </a>
 
-            <div class="profile">
+        <a href="#socials">
+            Socials
+        </a>
 
-                <div class="profile-item">
-                    <strong>Nama</strong><br>
-                    YOUR FULL NAME
-                </div>
+    </div>
 
-                <div class="profile-item">
-                    <strong>Umur</strong><br>
-                    22 Tahun
-                </div>
 
-                <div class="profile-item">
-                    <strong>Pendidikan</strong><br>
-                    Bachelor of Business Management
-                </div>
+    <button
+        class="music-btn"
+        onclick="toggleMusic()"
+    >
+        🎵
+    </button>
 
-                <div class="profile-item">
-                    <strong>Domisili</strong><br>
-                    Indonesia
-                </div>
+</nav>
 
-                <div class="profile-item">
-                    <strong>Interest</strong><br>
-                    Beauty · Fashion · Design · Music
-                </div>
 
-            </div>
+
+<!-- ==========================
+     HERO
+========================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+
+    <div class="cloud one"></div>
+
+    <div class="cloud two"></div>
+
+
+    <div class="star one">
+        🌸
+    </div>
+
+    <div class="star two">
+        ⭐
+    </div>
+
+    <div class="star three">
+        🌸
+    </div>
+
+    <div class="star four">
+        ⭐
+    </div>
+
+
+    <div class="hero-content">
+
+
+        <!-- PEPPA -->
+
+        <div class="peppa">
+
+            <!--
+            GANTI DENGAN GAMBAR PEPPA
+            YANG KAMU MAU
+
+            assets/peppa-flying.png
+            -->
+
+            <img
+                src="flyingpeppa.png"
+                alt="Flying Peppa"
+            >
+
+        </div>
+
+
+        <!-- INTRO -->
+
+        <div class="intro">
+
+            <h2>
+                Hi there!
+            </h2>
+
+            <h1>
+                I'm Shaqie 🌸
+            </h1>
+
+            <p>
+
+                Welcome to my little world 🌷<br>
+
+                Explore around to know more about me<br>
+
+                and the things I love!
+
+            </p>
+
+
+            <a
+                href="#sections"
+                class="scroll-btn"
+            >
+
+                Scroll Down ♥︎
+
+            </a>
 
         </div>
 
     </div>
 
 
-    <!-- SOCIAL POPUP -->
-    <div class="popup" id="socialPopup">
+    <div class="hills"></div>
 
-        <div class="popup-content">
+</section>
 
-            <div class="close" onclick="closePopup()">×</div>
 
-            <h2>Find Me Online ♡</h2>
 
-            <div class="social">
+<!-- ==========================
+     THREE SECTIONS
+========================== -->
 
-                <a href="https://instagram.com/USERNAME"
-                   target="_blank">
+<section
+    class="sections"
+    id="sections"
+>
+
+
+    <div class="flower-title">
+
+        🌸 🌼 🌷 🌺 🌸
+
+    </div>
+
+
+    <div class="title">
+
+        <h2>
+            ─── 🌸 Click Any Section! 🌸 ───
+        </h2>
+
+        <p>
+            Click the cards below to know more about me 💗
+        </p>
+
+    </div>
+
+
+
+    <div class="card-grid">
+
+
+        <!-- =====================
+             ABOUT ME
+        ====================== -->
+
+        <div
+            class="card"
+            onclick="openSection('about')"
+        >
+
+            <img
+                src="assets/peppa-about.png"
+                alt="About Me"
+            >
+
+            <h3>
+                About Me
+            </h3>
+
+            <p>
+                Get to know me better!
+            </p>
+
+            <button class="arrow">
+                ›
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================
+             SKILLS
+        ====================== -->
+
+        <div
+            class="card"
+            onclick="openSection('skills')"
+        >
+
+            <img
+                src="assets/peppa-skills.png"
+                alt="Skills"
+            >
+
+            <h3 style="color:#78b96e">
+                Skills
+            </h3>
+
+            <p>
+                Things I'm good at!
+            </p>
+
+            <button
+                class="arrow"
+                style="background:#91c982"
+            >
+                ›
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================
+             SOCIALS
+        ====================== -->
+
+        <div
+            class="card"
+            onclick="openSection('socials')"
+        >
+
+            <img
+                src="assets/peppa-social.png"
+                alt="Social Media"
+            >
+
+            <h3 style="color:#6ea9dc">
+                Socials
+            </h3>
+
+            <p>
+                Find me on social media!
+            </p>
+
+            <button
+                class="arrow"
+                style="background:#75b6e8"
+            >
+                ›
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+         ABOUT ME
+    =========================== -->
+
+    <div
+        class="content"
+        id="about"
+    >
+
+        <h2>
+            🌷 About Me
+        </h2>
+
+        <p>
+
+            Hi! I'm Nanas ♡
+
+            Welcome to my little corner of the internet!
+            I'm someone who enjoys learning new things,
+            exploring creative ideas and discovering
+            new experiences.
+
+        </p>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-box">
+
+                <strong>
+                    🎂 Age
+                </strong>
+
+                <br>
+
+                22 years old
+
+            </div>
+
+
+            <div class="about-box">
+
+                <strong>
+                    📍 Location
+                </strong>
+
+                <br>
+
+                Indonesia
+
+            </div>
+
+
+            <div class="about-box">
+
+                <strong>
+                    🎓 Education
+                </strong>
+
+                <br>
+
+                Business Management Student
+
+            </div>
+
+
+            <div class="about-box">
+
+                <strong>
+                    💗 Hobbies
+                </strong>
+
+                <br>
+
+                Music, Design & Exploring
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+         SKILLS
+    =========================== -->
+
+    <div
+        class="content"
+        id="skills"
+    >
+
+        <h2>
+            ✨ My Skills
+        </h2>
+
+        <p>
+            Things I enjoy learning and working with:
+        </p>
+
+
+        <div class="skills">
+
+            <span class="skill">
+                HTML
+            </span>
+
+            <span class="skill">
+                CSS
+            </span>
+
+            <span class="skill">
+                JavaScript
+            </span>
+
+            <span class="skill">
+                Canva
+            </span>
+
+            <span class="skill">
+                Microsoft Office
+            </span>
+
+            <span class="skill">
+                Communication
+            </span>
+
+            <span class="skill">
+                Teamwork
+            </span>
+
+            <span class="skill">
+                Presentation
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+         SOCIALS
+    =========================== -->
+
+    <div
+        class="content"
+        id="socials"
+    >
+
+        <h2>
+            💌 My Socials
+        </h2>
+
+        <p>
+            Let's be friends on the internet ♡
+        </p>
+
+
+        <div class="social-grid">
+
+
+            <a
+                href="https://instagram.com/YOURUSERNAME"
+                target="_blank"
+                class="social"
+            >
+
+                📸
+
+                <strong>
                     Instagram
-                    <span>↗</span>
-                </a>
+                </strong>
 
-                <a href="https://tiktok.com/@USERNAME"
-                   target="_blank">
-                    TikTok
-                    <span>↗</span>
-                </a>
+                <br>
 
-                <a href="https://github.com/USERNAME"
-                   target="_blank">
+                @YOURUSERNAME
+
+            </a>
+
+
+            <a
+                href="https://github.com/YOURUSERNAME"
+                target="_blank"
+                class="social"
+            >
+
+                💻
+
+                <strong>
                     GitHub
-                    <span>↗</span>
-                </a>
+                </strong>
 
-                <a href="mailto:youremail@email.com">
-                    Email
-                    <span>✉</span>
-                </a>
+                <br>
 
-            </div>
+                @YOURUSERNAME
+
+            </a>
+
+
+            <a
+                href="https://linkedin.com/in/YOURUSERNAME"
+                target="_blank"
+                class="social"
+            >
+
+                💼
+
+                <strong>
+                    LinkedIn
+                </strong>
+
+                <br>
+
+                YOUR NAME
+
+            </a>
+
+
+            <a
+                href="https://tiktok.com/@YOURUSERNAME"
+                target="_blank"
+                class="social"
+            >
+
+                🎵
+
+                <strong>
+                    TikTok
+                </strong>
+
+                <br>
+
+                @YOURUSERNAME
+
+            </a>
+
 
         </div>
 
     </div>
 
 
-    <script>
-
-        function openPopup(type) {
-
-            closePopup();
-
-            if (type === "profile") {
-                document
-                    .getElementById("profilePopup")
-                    .classList.add("active");
-            }
-
-            if (type === "social") {
-                document
-                    .getElementById("socialPopup")
-                    .classList.add("active");
-            }
-        }
+</section>
 
 
-        function closePopup() {
 
-            document
-                .getElementById("profilePopup")
-                .classList.remove("active");
+<!-- ==========================
+     FOOTER
+========================== -->
 
-            document
-                .getElementById("socialPopup")
-                .classList.remove("active");
-        }
+<footer>
+
+    <p>
+        🌸 🌷 🌼 🌺 🌸
+    </p>
+
+    <p>
+        © 2026 Nanas | Made with 🐷 & 💗
+    </p>
+
+    <p>
+        oink! thanks for visiting ♡
+    </p>
+
+</footer>
 
 
-        window.onclick = function(event) {
 
-            if (event.target.classList.contains("popup")) {
-                closePopup();
-            }
+<!-- MUSIC -->
 
-        };
+<audio
+    id="music"
+    loop
+>
 
-    </script>
+    <source
+        src="assets/music.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<script>
+
+/* ==========================
+   OPEN CONTENT
+========================== */
+
+function openSection(id) {
+
+    const contents =
+        document.querySelectorAll(".content");
+
+    contents.forEach(item => {
+
+        item.classList.remove("show");
+
+    });
+
+
+    const selected =
+        document.getElementById(id);
+
+    selected.classList.add("show");
+
+
+    setTimeout(() => {
+
+        selected.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+    }, 100);
+
+}
+
+
+/* ==========================
+   MUSIC
+========================== */
+
+let playing = false;
+
+function toggleMusic() {
+
+    const music =
+        document.getElementById("music");
+
+    const button =
+        document.querySelector(".music-btn");
+
+
+    if (!playing) {
+
+        music.play();
+
+        button.innerHTML = "🔊";
+
+        playing = true;
+
+    } else {
+
+        music.pause();
+
+        button.innerHTML = "🎵";
+
+        playing = false;
+
+    }
+
+}
+
+</script>
+
 
 </body>
 </html>
